@@ -14,19 +14,135 @@ import { Timeline } from "./components/Timeline";
 import { GateHistogram } from "./components/GateHistogram";
 import { ReportView } from "./components/ReportView";
 
-const SAMPLE = `OPENQASM 2.0;
+const SAMPLE = `// ============================================================================
+// Example: Quantum Superposition Demonstration (100 Qubits)
+// -----------------------------------------------------------------------------
+// This example is a *conceptual* demonstration of how quantum computers can
+// explore many possible states in parallel, a principle used in algorithms
+// like Shor's (for factoring) and Grover's (for search).
+//
+// In theory, large-scale quantum computers could use Shor's algorithm to
+// break classical public-key cryptography (e.g., RSA, ECDSA). Bitcoin uses
+// ECDSA for transaction signatures, so a sufficiently powerful quantum
+// computer could, in principle, derive private keys from public keys.
+// 
+// This circuit does NOT break Bitcoin or any cryptosystem — it simply
+// prepares a uniform superposition over 2^100 states to illustrate the
+// exponential parallelism that underlies such algorithms.
+// ============================================================================
+
+OPENQASM 2.0;
 include "qelib1.inc";
 
-qreg q[3];
-creg c[3];
+// Declare 100 qubits and 100 classical bits
+qreg q[100];
+creg c[100];
 
+// Apply Hadamard to all qubits to create uniform superposition
 h q[0];
-cx q[0],q[1];
-cx q[0],q[2];
-barrier q;
-measure q[0] -> c[0];
-measure q[1] -> c[1];
-measure q[2] -> c[2];`;
+h q[1];
+h q[2];
+h q[3];
+h q[4];
+h q[5];
+h q[6];
+h q[7];
+h q[8];
+h q[9];
+h q[10];
+h q[11];
+h q[12];
+h q[13];
+h q[14];
+h q[15];
+h q[16];
+h q[17];
+h q[18];
+h q[19];
+h q[20];
+h q[21];
+h q[22];
+h q[23];
+h q[24];
+h q[25];
+h q[26];
+h q[27];
+h q[28];
+h q[29];
+h q[30];
+h q[31];
+h q[32];
+h q[33];
+h q[34];
+h q[35];
+h q[36];
+h q[37];
+h q[38];
+h q[39];
+h q[40];
+h q[41];
+h q[42];
+h q[43];
+h q[44];
+h q[45];
+h q[46];
+h q[47];
+h q[48];
+h q[49];
+h q[50];
+h q[51];
+h q[52];
+h q[53];
+h q[54];
+h q[55];
+h q[56];
+h q[57];
+h q[58];
+h q[59];
+h q[60];
+h q[61];
+h q[62];
+h q[63];
+h q[64];
+h q[65];
+h q[66];
+h q[67];
+h q[68];
+h q[69];
+h q[70];
+h q[71];
+h q[72];
+h q[73];
+h q[74];
+h q[75];
+h q[76];
+h q[77];
+h q[78];
+h q[79];
+h q[80];
+h q[81];
+h q[82];
+h q[83];
+h q[84];
+h q[85];
+h q[86];
+h q[87];
+h q[88];
+h q[89];
+h q[90];
+h q[91];
+h q[92];
+h q[93];
+h q[94];
+h q[95];
+h q[96];
+h q[97];
+h q[98];
+h q[99];
+
+// Measure all qubits
+measure q -> c;
+`;
 
 export default function App() {
   const [qasm, setQasm] = useState(SAMPLE);
@@ -99,11 +215,13 @@ export default function App() {
       </header>
 
       <div className="toolbar">
-        <button className="button" onClick={() => setQasm(SAMPLE)}><Play size={16} /> sample</button>
+        {/* <button className="button" onClick={() => setQasm(SAMPLE)}><Play size={16} /> sample</button>
+         */}
+        <button className="button accent" onClick={handleAi} disabled={aiBusy}><Sparkles size={16} /> {aiBusy ? "explaining..." : "AI, NYA!"}</button>
+        
         <button className="button" onClick={copyPermalink}><Link2 size={16} /> permalink</button>
-        <button className="button" onClick={() => downloadText("qasm-analysis.md", markdown, "text/markdown")}><Download size={16} /> md</button>
+        <button className="button" onClick={() => downloadText("qasm-analysis.md", markdown, "text/markdown")}><Download size={16} /> markdown</button>
         <button className="button" onClick={() => downloadText("qasm-analysis.json", JSON.stringify(analysis, null, 2), "application/json")}><Download size={16} /> json</button>
-        <button className="button accent" onClick={handleAi} disabled={aiBusy}><Sparkles size={16} /> {aiBusy ? "explaining..." : "explain local"}</button>
         <button className="button" onClick={resetAi}><RotateCcw size={16} /> reset ai</button>
       </div>
 
@@ -134,7 +252,7 @@ export default function App() {
           <ReportView analysis={analysis} />
         </TerminalBox>
         <TerminalBox title={`LOCAL AI OUTPUT / ${DEFAULT_LOCAL_MODEL}`}>
-          <pre className="ai-output">{aiText || "press [EXPLAIN LOCAL] to load WebLLM and generate an on-device report"}</pre>
+          <pre className="ai-output">{aiText || "press [AI EXPLAIN] to load WebLLM and generate an on-device report"}</pre>
         </TerminalBox>
       </section>
     </main>
