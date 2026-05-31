@@ -1,9 +1,14 @@
-# QASM Terminal Analyzer
+# KOTEQATO, NYA!
 
-Browser-only OpenQASM circuit analyzer with an ASCII terminal-style UI and on-demand WebLLM local AI explanation.
+https://arsen-totem.github.io/koteqato/
 
-**Authors:** ChatGPT / GPT-5.5 Thinking and Arsen Serhieiev  
+Browser-only Quantum Circuit inspection. Deterministic facts first, AI explanation on demand.
+
+**Authors:** Arsen Serhieiev and ChatGPT/Llama  
 **Purpose:** educational project
+
+![KOTEQATO](./koteqato.png)
+
 
 ## Scope
 
