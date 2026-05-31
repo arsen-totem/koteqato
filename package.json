@@ -1,0 +1,29 @@
+{
+  "name": "quantum-qasm-analyzer",
+  "version": "0.4.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "typescript": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "lucide-react": "latest",
+    "lz-string": "latest",
+    "@mlc-ai/web-llm": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest"
+  },
+  "author": "ChatGPT (GPT-5.5 Thinking) and Arsen Serhieiev",
+  "description": "Educational browser-only OpenQASM analyzer with terminal ASCII UI and WebLLM local AI explanation."
+}
