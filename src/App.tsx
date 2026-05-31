@@ -89,9 +89,9 @@ export default function App() {
       <header className="hero">
         <div>
           <p className="kicker">QASM://TERMINAL_ANALYZER v0.4.1</p>
-          <h1>Quantum Circuit Static Analyzer</h1>
-          <p className="subtitle">Browser-only OpenQASM inspection. No backend. No Qiskit runtime. Deterministic facts first, WebLLM local AI explanation on demand.</p>
-          <p className="credits">Educational project by ChatGPT / GPT-5.5 Thinking and Arsen Serhieiev.</p>
+          <h1>KOTEQATO, NYA!</h1>
+          <p className="subtitle">Browser-only Quantum Circuit inspection. Deterministic facts first, AI explanation on demand.</p>
+          <p className="credits">Educational project by Arsen Serhieiev and ChatGPT/Llama.</p>
         </div>
         <div className="status">
           <Cpu size={18} /> {aiStatus}
